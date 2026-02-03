@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Esküvői visszajelzés</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <img src="images/hero.jpg" alt="">
+  <div class="hero-text">
+    <h1>Anna & Péter</h1>
+    <p>2026. június 20.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="intro">
+    <h2>💌 Visszajelzés</h2>
+    <p>Kérjük, töltsd ki az alábbi űrlapot.  
+       Csak a rád vonatkozó kérdéseket fogod látni.</p>
+  </section>
+
+  <img class="divider" src="images/divider.svg" alt="">
+
+  <!-- GOOGLE FORM BACKEND -->
+  <form
+    action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
+    method="POST"
+    novalidate>
+
+    <!-- NÉV -->
+    <label>Teljes név *</label>
+    <input type="text" name="entry.1111111111" required>
+
+    <!-- RÉSZVÉTEL -->
+    <label>Részt veszel az esküvőn? *</label>
+    <select id="attendance" name="entry.2222222222" required>
+      <option value="">Válassz…</option>
+      <option value="Igen">Igen</option>
+      <option value="Nem">Sajnos nem</option>
+    </select>
+
+    <!-- CSAK HA IGEN -->
+    <div id="yesSection" class="conditional hidden">
+
+      <label>Hány fővel érkezel?</label>
+      <select name="entry.3333333333">
+        <option value="1">1 fő</option>
+        <option value="2">2 fő</option>
+        <option value="3">3 fő</option>
+      </select>
+
+      <label>Van ételallergiád vagy speciális étrended?</label>
+      <select id="diet" name="entry.4444444444">
+        <option value="Nincs">Nincs</option>
+        <option value="Van">Van</option>
+      </select>
+
+      <!-- CSAK HA VAN -->
+      <div id="dietDetails" class="conditional hidden">
+        <label>Kérjük, részletezd</label>
+        <textarea
+          name="entry.5555555555"
+          placeholder="Allergia, intolerancia, egyéb"></textarea>
+      </div>
+
+    </div>
+
+    <!-- CSAK HA NEM -->
+    <div id="noSection" class="conditional hidden">
+      <label>Ha szeretnél, itt hagyhatsz nekünk egy üzenetet</label>
+      <textarea
+        name="entry.6666666666"
+        placeholder="Sajnos nem tudunk menni, de sok boldogságot…"></textarea>
+    </div>
+
+    <button type="submit">Visszajelzés elküldése</button>
+
+  </form>
+
+</main>
+
+<footer>
+  <p>Köszönjük, hogy időt szántál ránk.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
