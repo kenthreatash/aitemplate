@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <title>Anna & Péter – Esküvő RSVP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,28 +25,29 @@
   <img class="divider" src="images/divider.svg" alt="Divider">
 
   <form id="rsvpForm" action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" method="POST" novalidate>
-    
-    <!-- STEP 1 -->
+
+    <!-- STEP 1: Alapadatok -->
     <section class="step active">
       <h2>💌 Visszajelzés</h2>
       <label>Teljes név *</label>
       <input type="text" name="entry.1111111111" required>
-      
+
       <label>Részt veszel az esküvőn? *</label>
       <select id="attendance" name="entry.2222222222" required>
         <option value="">Válassz…</option>
         <option value="Igen">Igen</option>
         <option value="Nem">Sajnos nem</option>
       </select>
-      
+
       <div class="center-buttons">
         <button type="button" class="nextBtn">Tovább</button>
       </div>
     </section>
-    
-    <!-- STEP 2 -->
+
+    <!-- STEP 2: Részletek a résztvevőkről -->
     <section class="step">
       <div id="yesSection" class="conditional hidden">
+
         <label>Hány fővel érkezel?</label>
         <select id="totalGuests" name="entry.3333333333">
           <option value="1">1 fő</option>
@@ -54,16 +55,16 @@
           <option value="3">3 fő</option>
         </select>
 
-        <!-- Gyerekek feltételes -->
         <div id="childrenSection" class="conditional hidden">
           <label>Gyermekkel érkezel?</label>
           <select id="children" name="entry.4444444444">
             <option value="Nincs">Nincs</option>
             <option value="Van">Van</option>
           </select>
+
           <div id="childrenDetails" class="conditional hidden">
             <label>Hány gyermek és életkoruk?</label>
-            <input type="text" name="entry.5555555555" placeholder="Pl. 2 gyermek, 3 és 5 éves">
+            <input type="text" id="childrenAges" name="entry.5555555555" placeholder="Pl. 2 gyermek, 3 és 5 éves">
           </div>
         </div>
 
@@ -88,9 +89,9 @@
           <option value="Nem">Nem</option>
           <option value="Igen">Igen</option>
         </select>
+
       </div>
 
-      <!-- CSAK HA NEM -->
       <div id="noSection" class="conditional hidden">
         <p>Ha szeretnél, hagyhatsz üzenetet</p>
       </div>
@@ -101,15 +102,24 @@
       </div>
     </section>
 
-    <!-- STEP 3 -->
+    <!-- STEP 3: Egyéb megjegyzés / opcionális zene -->
     <section class="step">
       <label>Egyéb megjegyzés</label>
       <textarea name="entry.1010101010" placeholder="Üzenet / köszöntés…"></textarea>
 
+      <label>Zenei kívánság (opcionális)</label>
+      <input type="text" name="entry.1111111111" placeholder="Előadó vagy szám">
+
       <div class="center-buttons">
         <button type="button" class="prevBtn">Vissza</button>
-        <button type="submit">Elküldés</button>
+        <button type="button" class="nextBtn">Tovább</button>
       </div>
+    </section>
+
+    <!-- STEP 4: Köszönő oldal -->
+    <section class="step">
+      <h2>Köszönjük, hogy visszajelzett!</h2>
+      <p>Alig várjuk, hogy együtt ünnepeljünk ❤️</p>
     </section>
 
   </form>
