@@ -2,8 +2,12 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8">
-  <title>Anna & Péter – Esküvő</title>
+  <title>Anna & Péter – Esküvő RSVP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,90 +24,93 @@
 
   <img class="divider" src="images/divider.svg" alt="Divider">
 
-  <section class="intro">
-    <h2>💌 Visszajelzés</h2>
-    <p>Kérjük, töltsd ki az alábbi űrlapot. Csak a rád vonatkozó kérdéseket fogod látni.</p>
-  </section>
-
-  <form 
-    action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" 
-    method="POST" novalidate>
-
-    <!-- NÉV -->
-    <label>Teljes név *</label>
-    <input type="text" name="entry.1111111111" required>
-
-    <!-- RÉSZVÉTEL -->
-    <label>Részt veszel az esküvőn? *</label>
-    <select id="attendance" name="entry.2222222222" required>
-      <option value="">Válassz…</option>
-      <option value="Igen">Igen</option>
-      <option value="Nem">Sajnos nem</option>
-    </select>
-
-    <!-- CSAK HA IGEN -->
-    <div id="yesSection" class="conditional hidden">
-
-      <!-- Létszám -->
-      <label>Hány fővel érkezel?</label>
-      <select name="entry.3333333333">
-        <option value="1">1 fő</option>
-        <option value="2">2 fő</option>
-        <option value="3">3 fő</option>
+  <form id="rsvpForm" action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" method="POST" novalidate>
+    
+    <!-- STEP 1 -->
+    <section class="step active">
+      <h2>💌 Visszajelzés</h2>
+      <label>Teljes név *</label>
+      <input type="text" name="entry.1111111111" required>
+      
+      <label>Részt veszel az esküvőn? *</label>
+      <select id="attendance" name="entry.2222222222" required>
+        <option value="">Válassz…</option>
+        <option value="Igen">Igen</option>
+        <option value="Nem">Sajnos nem</option>
       </select>
+      
+      <div class="center-buttons">
+        <button type="button" class="nextBtn">Tovább</button>
+      </div>
+    </section>
+    
+    <!-- STEP 2 -->
+    <section class="step">
+      <div id="yesSection" class="conditional hidden">
+        <label>Hány fővel érkezel?</label>
+        <select id="totalGuests" name="entry.3333333333">
+          <option value="1">1 fő</option>
+          <option value="2">2 fő</option>
+          <option value="3">3 fő</option>
+        </select>
 
-      <!-- Gyermekek -->
-      <label>Gyermekkel érkezel?</label>
-      <select id="children" name="entry.4444444444">
-        <option value="Nincs">Nincs</option>
-        <option value="Van">Van</option>
-      </select>
-      <div id="childrenDetails" class="conditional hidden">
-        <label>Hány gyermek és életkoruk?</label>
-        <input type="text" name="entry.5555555555" placeholder="Pl. 2 gyermek, 3 és 5 éves">
+        <!-- Gyerekek feltételes -->
+        <div id="childrenSection" class="conditional hidden">
+          <label>Gyermekkel érkezel?</label>
+          <select id="children" name="entry.4444444444">
+            <option value="Nincs">Nincs</option>
+            <option value="Van">Van</option>
+          </select>
+          <div id="childrenDetails" class="conditional hidden">
+            <label>Hány gyermek és életkoruk?</label>
+            <input type="text" name="entry.5555555555" placeholder="Pl. 2 gyermek, 3 és 5 éves">
+          </div>
+        </div>
+
+        <label>Van ételallergiád vagy speciális étrended?</label>
+        <select id="diet" name="entry.6666666666">
+          <option value="Nincs">Nincs</option>
+          <option value="Van">Van</option>
+        </select>
+        <div id="dietDetails" class="conditional hidden">
+          <label>Kérjük, részletezd</label>
+          <textarea name="entry.7777777777" placeholder="Allergia, intolerancia, egyéb"></textarea>
+        </div>
+
+        <label>Szükséged van szállásra?</label>
+        <select id="accommodation" name="entry.8888888888">
+          <option value="Nem">Nem</option>
+          <option value="Igen">Igen</option>
+        </select>
+
+        <label>Szükséged van transzferre?</label>
+        <select id="transfer" name="entry.9999999999">
+          <option value="Nem">Nem</option>
+          <option value="Igen">Igen</option>
+        </select>
       </div>
 
-      <!-- Étkezés -->
-      <label>Van ételallergiád vagy speciális étrended?</label>
-      <select id="diet" name="entry.6666666666">
-        <option value="Nincs">Nincs</option>
-        <option value="Van">Van</option>
-      </select>
-      <div id="dietDetails" class="conditional hidden">
-        <label>Kérjük, részletezd</label>
-        <textarea name="entry.7777777777" placeholder="Allergia, intolerancia, egyéb"></textarea>
+      <!-- CSAK HA NEM -->
+      <div id="noSection" class="conditional hidden">
+        <p>Ha szeretnél, hagyhatsz üzenetet</p>
       </div>
 
-      <!-- Szállás -->
-      <label>Szükséged van szállásra?</label>
-      <select id="accommodation" name="entry.8888888888">
-        <option value="Nem">Nem</option>
-        <option value="Igen">Igen</option>
-      </select>
+      <div class="center-buttons">
+        <button type="button" class="prevBtn">Vissza</button>
+        <button type="button" class="nextBtn">Tovább</button>
+      </div>
+    </section>
 
-      <!-- Transzfer -->
-      <label>Szükséged van transzferre?</label>
-      <select id="transfer" name="entry.9999999999">
-        <option value="Nem">Nem</option>
-        <option value="Igen">Igen</option>
-      </select>
+    <!-- STEP 3 -->
+    <section class="step">
+      <label>Egyéb megjegyzés</label>
+      <textarea name="entry.1010101010" placeholder="Üzenet / köszöntés…"></textarea>
 
-      <!-- Zenei kívánság -->
-      <label>Van zenei kívánságod?</label>
-      <input type="text" name="entry.1010101010" placeholder="Előadó vagy szám">
-
-      <label>Van olyan zene, amit inkább kerüljünk?</label>
-      <input type="text" name="entry.1111111110" placeholder="Előadó vagy szám">
-
-    </div>
-
-    <!-- CSAK HA NEM -->
-    <div id="noSection" class="conditional hidden">
-      <label>Ha szeretnél, hagyj üzenetet</label>
-      <textarea name="entry.1212121212" placeholder="Sajnos nem tudunk menni, de sok boldogságot…"></textarea>
-    </div>
-
-    <button type="submit">Visszajelzés elküldése</button>
+      <div class="center-buttons">
+        <button type="button" class="prevBtn">Vissza</button>
+        <button type="submit">Elküldés</button>
+      </div>
+    </section>
 
   </form>
 
