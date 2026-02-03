@@ -2,14 +2,14 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8">
-  <title>Esküvői visszajelzés</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anna & Péter – Esküvő</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="hero">
-  <img src="images/hero.jpg" alt="">
+  <img src="images/hero.jpg" alt="Wedding hero image">
   <div class="hero-text">
     <h1>Anna & Péter</h1>
     <p>2026. június 20.</p>
@@ -18,19 +18,16 @@
 
 <main class="container">
 
+  <img class="divider" src="images/divider.svg" alt="Divider">
+
   <section class="intro">
     <h2>💌 Visszajelzés</h2>
-    <p>Kérjük, töltsd ki az alábbi űrlapot.  
-       Csak a rád vonatkozó kérdéseket fogod látni.</p>
+    <p>Kérjük, töltsd ki az alábbi űrlapot. Csak a rád vonatkozó kérdéseket fogod látni.</p>
   </section>
 
-  <img class="divider" src="images/divider.svg" alt="">
-
-  <!-- GOOGLE FORM BACKEND -->
-  <form
-    action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
-    method="POST"
-    novalidate>
+  <form 
+    action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" 
+    method="POST" novalidate>
 
     <!-- NÉV -->
     <label>Teljes név *</label>
@@ -47,6 +44,7 @@
     <!-- CSAK HA IGEN -->
     <div id="yesSection" class="conditional hidden">
 
+      <!-- Létszám -->
       <label>Hány fővel érkezel?</label>
       <select name="entry.3333333333">
         <option value="1">1 fő</option>
@@ -54,28 +52,55 @@
         <option value="3">3 fő</option>
       </select>
 
-      <label>Van ételallergiád vagy speciális étrended?</label>
-      <select id="diet" name="entry.4444444444">
+      <!-- Gyermekek -->
+      <label>Gyermekkel érkezel?</label>
+      <select id="children" name="entry.4444444444">
         <option value="Nincs">Nincs</option>
         <option value="Van">Van</option>
       </select>
+      <div id="childrenDetails" class="conditional hidden">
+        <label>Hány gyermek és életkoruk?</label>
+        <input type="text" name="entry.5555555555" placeholder="Pl. 2 gyermek, 3 és 5 éves">
+      </div>
 
-      <!-- CSAK HA VAN -->
+      <!-- Étkezés -->
+      <label>Van ételallergiád vagy speciális étrended?</label>
+      <select id="diet" name="entry.6666666666">
+        <option value="Nincs">Nincs</option>
+        <option value="Van">Van</option>
+      </select>
       <div id="dietDetails" class="conditional hidden">
         <label>Kérjük, részletezd</label>
-        <textarea
-          name="entry.5555555555"
-          placeholder="Allergia, intolerancia, egyéb"></textarea>
+        <textarea name="entry.7777777777" placeholder="Allergia, intolerancia, egyéb"></textarea>
       </div>
+
+      <!-- Szállás -->
+      <label>Szükséged van szállásra?</label>
+      <select id="accommodation" name="entry.8888888888">
+        <option value="Nem">Nem</option>
+        <option value="Igen">Igen</option>
+      </select>
+
+      <!-- Transzfer -->
+      <label>Szükséged van transzferre?</label>
+      <select id="transfer" name="entry.9999999999">
+        <option value="Nem">Nem</option>
+        <option value="Igen">Igen</option>
+      </select>
+
+      <!-- Zenei kívánság -->
+      <label>Van zenei kívánságod?</label>
+      <input type="text" name="entry.1010101010" placeholder="Előadó vagy szám">
+
+      <label>Van olyan zene, amit inkább kerüljünk?</label>
+      <input type="text" name="entry.1111111110" placeholder="Előadó vagy szám">
 
     </div>
 
     <!-- CSAK HA NEM -->
     <div id="noSection" class="conditional hidden">
-      <label>Ha szeretnél, itt hagyhatsz nekünk egy üzenetet</label>
-      <textarea
-        name="entry.6666666666"
-        placeholder="Sajnos nem tudunk menni, de sok boldogságot…"></textarea>
+      <label>Ha szeretnél, hagyj üzenetet</label>
+      <textarea name="entry.1212121212" placeholder="Sajnos nem tudunk menni, de sok boldogságot…"></textarea>
     </div>
 
     <button type="submit">Visszajelzés elküldése</button>
@@ -85,7 +110,7 @@
 </main>
 
 <footer>
-  <p>Köszönjük, hogy időt szántál ránk.</p>
+  <p>Köszönjük, hogy időt szántál ránk 💕</p>
 </footer>
 
 <script src="script.js"></script>
