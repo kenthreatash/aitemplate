@@ -1,3 +1,17 @@
+/* Fonts */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  background: #faf8f6;
+  color: #333;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Hero */
 .hero {
   position: relative;
   width: 100%;
@@ -17,21 +31,23 @@
   text-align: center;
   color: white;
   padding: 0 1rem;
-  font-family: Georgia, serif;
 }
 
+/* Divider */
 .divider {
   display: block;
   margin: 2rem auto;
   max-width: 120px;
 }
 
+/* Container */
 .container {
   max-width: 600px;
   margin: 0 auto;
   padding: 1rem;
 }
 
+/* Form fields */
 label {
   display: block;
   margin-top: 1rem;
@@ -52,13 +68,12 @@ textarea {
 }
 
 button {
-  margin-top: 2rem;
-  width: 100%;
-  padding: 0.8rem;
-  background: #7a5c52;
-  color: white;
+  padding: 0.8rem 2rem;
+  margin: 1rem 0.5rem;
   border: none;
   border-radius: 30px;
+  background: #7a5c52;
+  color: white;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -67,14 +82,19 @@ button:hover {
   background: #684a41;
 }
 
-.hidden {
-  display: none;
+.center-buttons {
+  text-align: center;
 }
 
-.conditional {
-  margin-top: 1rem;
-}
+/* Conditional fields */
+.hidden { display: none; }
+.conditional { margin-top: 1rem; }
 
+/* Steps */
+.step { display: none; }
+.step.active { display: block; }
+
+/* Footer */
 footer {
   text-align: center;
   padding: 2rem 1rem;
@@ -82,13 +102,8 @@ footer {
   opacity: 0.8;
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-  .hero img {
-    height: auto;
-  }
-  .hero-text {
-    position: static;
-    margin: 1rem 0;
-    color: #333;
-  }
+  .hero img { height: auto; }
+  .hero-text { position: static; margin: 1rem 0; color: #333; }
 }
