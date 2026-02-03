@@ -1,7 +1,29 @@
-const form = document.getElementById("rsvpForm");
+// --- Stepper logika ---
 const steps = document.querySelectorAll(".step");
 let currentStep = 0;
 
+function showStep(n) {
+  steps.forEach((s,i)=>s.classList.remove("active"));
+  steps[n].classList.add("active");
+}
+
+showStep(currentStep);
+
+document.querySelectorAll(".nextBtn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    if(currentStep < steps.length-1) currentStep++;
+    showStep(currentStep);
+  });
+});
+
+document.querySelectorAll(".prevBtn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    if(currentStep > 0) currentStep--;
+    showStep(currentStep);
+  });
+});
+
+// --- Feltételes mezők ---
 const attendance = document.getElementById("attendance");
 const yesSection = document.getElementById("yesSection");
 const noSection = document.getElementById("noSection");
@@ -14,30 +36,7 @@ const childrenDetails = document.getElementById("childrenDetails");
 const diet = document.getElementById("diet");
 const dietDetails = document.getElementById("dietDetails");
 
-// Stepper
-function showStep(n) {
-  steps.forEach((s,i)=>s.classList.remove("active"));
-  steps[n].classList.add("active");
-}
-
-document.querySelectorAll(".nextBtn").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    if(currentStep < steps.length-1) currentStep++;
-    showStep(currentStep);
-  });
-});
-
-document.querySelectorAll(".prevBtn").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    if(currentStep > 0) currentStep--;
-    showStep(currentStep);
-  });
-});
-
-showStep(currentStep);
-
-// Conditional logic
-attendance.addEventListener("change", ()=>{
+attendance?.addEventListener("change", ()=>{
   yesSection.classList.add("hidden");
   noSection.classList.add("hidden");
   childrenSection.classList.add("hidden");
