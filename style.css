@@ -1,4 +1,4 @@
-/* Fonts */
+/* --- Alap beállítások --- */
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
@@ -11,7 +11,7 @@ h1, h2 {
   font-family: 'Playfair Display', serif;
 }
 
-/* Hero */
+/* --- Hero --- */
 .hero {
   position: relative;
   width: 100%;
@@ -33,21 +33,21 @@ h1, h2 {
   padding: 0 1rem;
 }
 
-/* Divider */
+/* --- Divider --- */
 .divider {
   display: block;
   margin: 2rem auto;
   max-width: 120px;
 }
 
-/* Container */
+/* --- Container --- */
 .container {
   max-width: 600px;
   margin: 0 auto;
   padding: 1rem;
 }
 
-/* Form fields */
+/* --- Form mezők --- */
 label {
   display: block;
   margin-top: 1rem;
@@ -86,15 +86,15 @@ button:hover {
   text-align: center;
 }
 
-/* Conditional fields */
+/* --- Conditional fields --- */
 .hidden { display: none; }
 .conditional { margin-top: 1rem; }
 
-/* Steps */
+/* --- Stepper --- */
 .step { display: none; }
 .step.active { display: block; }
 
-/* Footer */
+/* --- Footer --- */
 footer {
   text-align: center;
   padding: 2rem 1rem;
@@ -102,7 +102,7 @@ footer {
   opacity: 0.8;
 }
 
-/* Mobile */
+/* --- Mobile --- */
 @media (max-width: 768px) {
   .hero img { height: auto; }
   .hero-text { position: static; margin: 1rem 0; color: #333; }
